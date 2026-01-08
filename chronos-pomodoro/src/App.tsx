@@ -4,11 +4,13 @@ import './styles/theme.css';
 import './styles/global.css';
 
 export function App() {
-  console.log('Oi');
-
   return (
     <>
-      <Heading />
+      <Heading attr={123} attr2='String'>
+        Olá mundo 1
+      </Heading>
+      <Heading>Olá mundo 2</Heading>
+      <Heading>Olá mundo 3</Heading>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam tenetur
         consectetur fugiat placeat alias nesciunt qui? Impedit molestias sint,
