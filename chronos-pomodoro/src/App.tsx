@@ -13,8 +13,23 @@ import { PlayCircleIcon } from 'lucide-react';
 import { Footer } from './components/Footer';
 
 export function App() {
+  let numero = 0;
+
+  function handleClick() {
+    const span = document.getElementById('numero');
+
+    if(!span) return;
+
+    numero++;
+    span.innerText = numero.toString();
+    console.log(numero, Date.now());
+  }
+
   return (
     <>
+      <Heading>Número: <span id="numero">{numero}</span></Heading>
+      <button onClick={handleClick}>Aumenta</button>
+
       <Container>
         <Heading>
           <Logo />
@@ -36,7 +51,7 @@ export function App() {
           <div className='formRow'>
             <DefaultInput
               placeholder='Digite algo'
-              labelText='task'
+              labelText={numero.toString()}
               id='meuInput'
               type='text'
             />
