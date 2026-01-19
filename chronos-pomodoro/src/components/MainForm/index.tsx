@@ -55,7 +55,7 @@ export function MainForm() {
   }
 
   return (
-      <form onSubmit={handleCreateNewTask} className='form' action=''>
+      <form onSubmit={handleCreateNewTask} className='form'>
         <div className='formRow'>
           <DefaultInput
             labelText='task'
@@ -63,6 +63,7 @@ export function MainForm() {
             type='text'
             placeholder='Digite algo'
             ref={taskNameInput}
+            disabled={!!state.activeTask}
           />
         </div>
 
