@@ -41,9 +41,17 @@ export function History() {
 
   useEffect(() => {
     if (!confirmClearHistory) return;
+
     setConfirmClearHistory(false);
-    dispatch({ type: TaskActionTypes.RESET_STATE })
+
+    //dispatch({ type: TaskActionTypes.RESET_STATE });
   }, [confirmClearHistory, dispatch])
+
+  /* useEffect(() => {
+    return () => {
+      showMessage.dismiss();
+    }
+  }); */
 
   function handleSortTasks({ field }: Pick<SortTasksOptions, 'field'>) {
     // tem Omit tbm
@@ -64,6 +72,10 @@ export function History() {
     showMessage.dismiss();
     showMessage.confirm('Tem certeza?', (confirmation) => {
       setConfirmClearHistory(confirmation);
+
+      if (confirmation) {
+        dispatch({ type: TaskActionTypes.RESET_STATE })
+      }
     });
   }
 
